@@ -1,7 +1,6 @@
 var mysql = require("mysql");
 
-var connection = function () {
-    console.log("Conexão com banco de dados MySQl criada");
+var connection = function () {    
     return mysql.createConnection({
         host : "servidor_mysql_local",
         user : "root",
@@ -10,7 +9,6 @@ var connection = function () {
     });
 }
 
-module.exports = function(){
-    console.log("Módulo de conexão com banco carregado!");
+module.exports = function(){    
     return connection;
 }
