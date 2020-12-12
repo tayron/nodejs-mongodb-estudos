@@ -2,11 +2,25 @@
 	<html lang="pt-br">
 		<head>
 			<meta charset="utf-8"/>
-			<title>Formul·rio de cadastro de NotÌcia</title>
+			<title>Not√≠cia | Cadastrar</title>
 		</head>
 	<body>
 
-		<h1>Adicionar notÌcia</h1>
+		<h1>Adicionar not√≠cia</h1>
+
+		<form action="/noticias/salvar" method="post">
+			<label for="titulo">T√≠tulo</label>
+			<input type="text" name="titulo" id="titulo" />
+			
+			<br />
+
+			<label for="noticia">Not√≠cia</label>
+			<textarea name="noticia" id="noticia" cols="30" rows="10"></textarea>
+			
+			<br>
+
+			<button type="submit">Enviar</button>
+		</form>
 
 	</body>
 </html>

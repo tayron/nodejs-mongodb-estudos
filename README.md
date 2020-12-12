@@ -66,6 +66,11 @@ npm install mysql --save
 npm install consign --save
 ```
 
+* Instalando módulo Body Parser para tratar os dados recebido no body da requisição: request.body
+```
+npm install body-parser --save
+```
+
 #### Tecnologias utilizadas
 Express - Famework NodeJS para aplicação WEB
 EJS - Linguagem de modelagem para criação de páginas HTML usando javascript
