@@ -87,4 +87,5 @@ create table noticias(
 );
 ```
 
-# Próximo vídeo: https://www.udemy.com/course/curso-completo-do-desenvolvedor-nodejs/learn/lecture/5591034#overview
+#### Próximo aula, Introdução ao Express-validator: 
+* https://www.udemy.com/course/curso-completo-do-desenvolvedor-nodejs/learn/lecture/5599252#overview
