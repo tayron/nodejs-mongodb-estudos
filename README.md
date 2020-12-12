@@ -61,6 +61,11 @@ nodemon app
 npm install mysql --save
 ```
 
+* Instalando módulo Consign
+```
+npm install consign --save
+```
+
 #### Tecnologias utilizadas
 Express - Famework NodeJS para aplicação WEB
 EJS - Linguagem de modelagem para criação de páginas HTML usando javascript
