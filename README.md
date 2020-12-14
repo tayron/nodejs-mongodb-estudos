@@ -71,6 +71,11 @@ npm install consign --save
 npm install body-parser --save
 ```
 
+* Instalando Express validator
+```
+npm install express-validator --save
+```
+
 #### Tecnologias utilizadas
 Express - Famework NodeJS para aplicação WEB
 EJS - Linguagem de modelagem para criação de páginas HTML usando javascript
@@ -82,7 +87,10 @@ NPM - Gerenciador de pacotes javascript
 create table noticias(
     id_noticia int not null primary key auto_increment,
     titulo varchar(100),
+    resumo varchar(100),
+    nome_autor varchar(30),
     noticia text, 
+    data_noticia date,
     data_criacao timestamp default current_timestamp
 );
 ```
