@@ -2,7 +2,7 @@ const { body, validationResult } = require('express-validator');
 
 module.exports = function(application) {
     application.get('/formulario_inclusao_noticia', function(req, res){
-        res.render("admin/form_add_noticia");
+        application.app.controllers.admin.formulario_inclusao_noticia(res);
     });
 
     application.post('/noticias/salvar', [
@@ -14,20 +14,6 @@ module.exports = function(application) {
         body("noticia", "A notícia deve ser informado").notEmpty()
         
     ], function(req, res){
-        let noticia = req.body;
-        let errors = validationResult(req);
-
-        if (!errors.isEmpty()) {
-            console.log(errors.array());
-            res.render("admin/form_add_noticia", {validacao: errors.array()});
-            return 
-        }      
-
-        let connection = application.config.dbConnection();
-        let noticiasModel = new application.app.models.NoticiasDAO(connection);
-
-        noticiasModel.saveNoticia(noticia, function(error, result){
-            res.redirect("/noticias");
-        });          
+        application.app.controllers.admin.noticias_salvar(application, validationResult, req, res);
     });    
 }
