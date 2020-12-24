@@ -2,10 +2,10 @@ var mysql = require("mysql");
 
 var connection = function () {    
     return mysql.createConnection({
-        host : "servidor_mysql_local",
+        host : "172.19.0.2",
         user : "root",
         password : "yakTLS&70c52",
-        database: "portal_noticias"
+        database: "projeto"
     });
 }
 
