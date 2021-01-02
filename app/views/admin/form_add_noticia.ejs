@@ -1,52 +1,117 @@
 <!DOCTYPE html>
-	<html lang="pt-br">
-		<head>
-			<meta charset="utf-8"/>
-			<title>Notícia | Cadastrar</title>
-		</head>
-	<body>
+<html lang="pt-br">
 
-		<h1>Adicionar notícia</h1>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8" />
+	<title>Portal de notícias - Notícias</title>
 
-		<br />
+	<link rel="shortcut icon" href="/images/favicon.ico" />
+	<link href="/css/bootstrap.min.css" rel="stylesheet" />
 
-		<% if(validacao){ %>
-			<ul>
-				<% for (var i = 0; i < validacao.length; i++) { %>
-				<li><%= validacao[i].msg %></li>
-				<% } %>
-			</ul>
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
 
-		<% } %>
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
 
-		<form action="/noticias/salvar" method="post">
-			<label for="titulo">Título</label>
-			<input type="text" name="titulo" id="titulo" value="<%= noticia.titulo%>" />
+		main>.container {
+			padding: 60px 15px 0;
+		}		
+	</style>
+</head>
+
+<body class="d-flex flex-column h-100">
+	<header>
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<img src="/images/logomarca.png" style="height: 60px;" />
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+					aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav me-auto mb-2 mb-md-0">
+						<li class="nav-item active">
+							<a class="nav-link" aria-current="page" href="/">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/formulario_inclusao_noticia">Cadastrar noticia</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/noticias">Notícias</a>
+						</li>
+					</ul>
+					<form class="d-flex">
+						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn btn-outline-success" type="submit">Search</button>
+					</form>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Begin page content -->
+	<main class="flex-shrink-0">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="mt-5">Cadatrar notícias</h1>
+					<% if(validacao.length > 0){ %>
+						<div class="alert alert-danger" role="alert">
+							<ul class="list-group p-3">
+								<% for (var i = 0; i < validacao.length; i++) { %>
+								<li><%= validacao[i].msg %></li>
+								<% } %>
+							</ul>
+						</div>
+					<% } %>					
+				</div>
+				<div class="col-md-12">
+					<form action="/noticias/salvar" method="post" class="form">
+						<label for="titulo">Título</label>
+						<input type="text" name="titulo" id="titulo" value="<%= noticia.titulo%>" class="form-control" />
+						
+						<br />
 			
-			<br />
-
-			<label for="resumo">Resumo</label>
-			<input type="text" name="resumo" id="resumo" value="<%= noticia.resumo%>" />
+						<label for="resumo">Resumo</label>
+						<input type="text" name="resumo" id="resumo" value="<%= noticia.resumo%>" class="form-control" />
+						
+						<br />			
 			
-			<br />			
-
-			<label for="nome_autor">Nome autor</label>
-			<input type="text" name="nome_autor" id="nome_autor" value="<%= noticia.nome_autor%>" />
+						<label for="nome_autor">Nome autor</label>
+						<input type="text" name="nome_autor" id="nome_autor" value="<%= noticia.nome_autor%>" class="form-control" />
+						
+						<br />
+						
+						<label for="data_noticia">Data</label>
+						<input type="date" name="data_noticia" id="data_noticia" value="<%= noticia.data_noticia%>" class="form-control" />
+						
+						<br />			
 			
-			<br />
+						<label for="noticia">Notícia</label>
+						<textarea name="noticia" id="noticia" cols="30" rows="10" class="form-control"><%= noticia.noticia%></textarea>
+						
+						<br>
 			
-			<label for="data_noticia">Data</label>
-			<input type="date" name="data_noticia" id="data_noticia" value="<%= noticia.data_noticia%>" />
-			
-			<br />			
+						<button type="submit" class="btn btn-primary">Enviar</button>
+					</form>					
+				</div>
+			</div>
+		</div>
+	</main>
 
-			<label for="noticia">Notícia</label>
-			<textarea name="noticia" id="noticia" cols="30" rows="10"><%= noticia.noticia%></textarea>
-			
-			<br>
-
-			<button type="submit">Enviar</button>
-		</form>
-
-	</body>
+	<script src="/js/bootstrap.bundle.min.js"></script>
 </html>

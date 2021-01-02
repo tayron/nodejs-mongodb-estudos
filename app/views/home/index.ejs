@@ -1,12 +1,93 @@
 <!DOCTYPE html>
-	<html lang="pt-br">
-		<head>
-			<meta charset="utf-8"/>
-			<title>Portal de notícias</title>
-		</head>
-	<body>
+<html lang="pt-br">
 
-		<h1>Bem vindo à página inicial</h1>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8" />
+	<title>Portal de notícias</title>
 
-	</body>
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+
+		main>.container {
+			padding: 60px 15px 0;
+		}		
+	</style>
+</head>
+
+<body class="d-flex flex-column h-100">
+	<header>
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<img src="/images/logomarca.png" style="height: 60px;" />
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+					aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav me-auto mb-2 mb-md-0">
+						<li class="nav-item active">
+							<a class="nav-link" aria-current="page" href="/">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/formulario_inclusao_noticia">Cadastrar noticia</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/noticias">Notícias</a>
+						</li>
+					</ul>
+					<form class="d-flex">
+						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn btn-outline-success" type="submit">Search</button>
+					</form>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Begin page content -->
+	<main class="flex-shrink-0">
+		<div class="container">
+			<div class="row">
+			<% if(noticias) { %>
+				<div class="col-md-12">					
+					<h3 class="mt-5"><%= noticias[0].titulo %></h3>
+					<p><%= noticias[0].resumo %></p>
+					<p><small>Autor: <%= noticias[0].nome_autor%></small></p>
+					<a href="/noticia?id=<%= noticias[0].id_noticia %>">Leia mais</a>
+				</div>				
+				<% for (var i = 1; i < noticias.length; i++) {%>
+					<div class="col-md-3">					
+						<h3 class="mt-5"><%= noticias[i].titulo %></h3>
+						<p><%= noticias[i].resumo %></p>
+						<p><small>Autor: <%= noticias[i].nome_autor%></small></p>
+						<a href="/noticia?id=<%= noticias[i].id_noticia %>">Leia mais</a>
+					</div>
+				<% } %>
+			<% } %>
+			</div>
+		</div>
+	</main>
+
+	<script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>
