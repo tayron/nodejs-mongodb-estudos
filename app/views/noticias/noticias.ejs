@@ -57,6 +57,9 @@
 					<form class="d-flex" action="/noticias" method="get">
 						<input class="form-control me-2" type="search" placeholder="Título da notícia" aria-label="Pesquisar" name="nome" value="<%= filtro %>">
 						<button class="btn btn-outline-success" type="submit">Pesquisar</button>
+						<% if (filtro) { %>
+							<a href="/noticias" class="btn btn-outline-info">Limpar</a>
+						<% } %>
 					</form>
 				</div>
 			</div>
