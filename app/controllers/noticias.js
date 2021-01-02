@@ -12,7 +12,12 @@ module.exports.noticia = function(application, req, res){
     let noticiasModel = new application.app.models.NoticiasDAO(connection);    
     let id = req.query.id;
 
-    noticiasModel.getNoticia(id, function(error, result){
+    noticiasModel.getNoticia(id, function(error, result){        
+        console.log(result);
         res.render("noticias/noticia", {noticia: result});
     });        
+}
+
+function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
 }
