@@ -1,9 +1,14 @@
-module.exports.noticias = function(application, res){
+module.exports.noticias = function(application, req, res){
     let connection = application.config.dbConnection();
     let noticiasModel = new application.app.models.NoticiasDAO(connection);
+    let nomeNoticia = req.query.nome;
 
-    noticiasModel.getNoticias(function(error, result){
-        res.render("noticias/noticias", {noticias: result});
+    if (!nomeNoticia) {
+        nomeNoticia = "";
+    }
+
+    noticiasModel.getNoticias(nomeNoticia, function(error, result){
+        res.render("noticias/noticias", {noticias: result, filtro: nomeNoticia});
     }); 
 }
 
@@ -16,8 +21,4 @@ module.exports.noticia = function(application, req, res){
         console.log(result);
         res.render("noticias/noticia", {noticia: result});
     });        
-}
-
-function isNumber(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
 }

@@ -54,9 +54,9 @@
 							<a class="nav-link" href="/noticias">Notícias</a>
 						</li>
 					</ul>
-					<form class="d-flex">
-						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success" type="submit">Search</button>
+					<form class="d-flex" action="/noticias" method="get">
+						<input class="form-control me-2" type="search" placeholder="Título da notícia" aria-label="Pesquisar" name="nome" value="<%= filtro %>">
+						<button class="btn btn-outline-success" type="submit">Pesquisar</button>
 					</form>
 				</div>
 			</div>
@@ -67,28 +67,22 @@
 	<main class="flex-shrink-0">
 		<div class="container">
 			<div class="row">
-			<% if(noticias) { %>
-				<div class="col-md-6">					
-					<h3 class="mt-5"><%= noticias[0].titulo %></h3>
-					<p><%= noticias[0].resumo %></p>
-					<p><small>Autor: <%= noticias[0].nome_autor%></small></p>
-					<a href="/noticia?id=<%= noticias[0].id_noticia %>">Leia mais</a>
-				</div>	
-				<div class="col-md-6">					
-					<h3 class="mt-5"><%= noticias[1].titulo %></h3>
-					<p><%= noticias[1].resumo %></p>
-					<p><small>Autor: <%= noticias[1].nome_autor%></small></p>
-					<a href="/noticia?id=<%= noticias[1].id_noticia %>">Leia mais</a>
-				</div>							
-				<% for (var i = 2; i < noticias.length; i++) {%>
-					<div class="col-md-3">					
-						<h3 class="mt-5"><%= noticias[i].titulo %></h3>
-						<p><%= noticias[i].resumo %></p>
-						<p><small>Autor: <%= noticias[i].nome_autor%></small></p>
-						<a href="/noticia?id=<%= noticias[i].id_noticia %>">Leia mais</a>
-					</div>
-				<% } %>
+			<% if (!noticias.length) { %>
+				<div class="col-md-12">					
+					<div class="alert alert-danger mt-5" role="alert">
+						Notícia não encontrada!
+					</div>						
+				</div>
 			<% } %>
+
+			<% for (var i = 0; i < noticias.length; i++) {%>
+				<div class="col-md-6">					
+					<h3 class="mt-5"><%= noticias[i].titulo %></h3>
+					<p><%= noticias[i].resumo %></p>
+					<p><small>Autor: <%= noticias[i].nome_autor%></small></p>
+					<a href="/noticia?id=<%= noticias[i].id_noticia %>">Leia mais</a>
+				</div>
+			<% } %>			
 			</div>
 		</div>
 	</main>

@@ -2,8 +2,8 @@ function NoticiasDAO(connection){
     this._connection = connection;
 }
 
-NoticiasDAO.prototype.getNoticias = function(callback){
-    let sql = "select id_noticia, titulo, resumo, nome_autor from noticias order by id_noticia desc";
+NoticiasDAO.prototype.getNoticias = function(nomeNoticia, callback){        
+    let sql = "select id_noticia, titulo, resumo, nome_autor from noticias where titulo like '%"+ nomeNoticia+"%' order by id_noticia desc";
     this._connection.query(sql, callback);           
 };
 
