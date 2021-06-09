@@ -84,17 +84,34 @@ img {
 	height:auto;
 	margin-bottom:15px;
 	padding:10px;
-	background:#D8F0FE;
+	background:#04418c30;    
 }
 
 .dialogo h4{
 	font-size:15px;
 	font-weight: bold;
-	color:#8B7777;
+	color:#000;
 }
 
 .dialogo p{
 	font-size:12px;
 	padding-left:15px;
-	color:#8B7777;
+	color:#000;
+}
+
+.navbar-default {
+    background-color: #04418c;    
+}
+
+.navbar-default, .navbar-brand {
+    color: #FFF !important;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #FFF;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: #FFF;
+    background-color: transparent;
 }
