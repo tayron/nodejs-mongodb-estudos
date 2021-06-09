@@ -4,7 +4,7 @@ module.exports.formulario_inclusao_noticia = function(res) {
 
 module.exports.noticias_salvar = function(application, validationResult, req, res) {
     let noticia = req.body;
-    let errors = validationResult(req);
+    let errors = validationResult(req);    
 
     if (!errors.isEmpty()) {
         res.render("admin/form_add_noticia", {validacao: errors.array(), noticia: noticia});
