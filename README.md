@@ -34,45 +34,45 @@ O MongoDB é um banco de dados No-SQL (não relacional) cuja utilização está 
 
 #### Comandos utilizados
 * Adicioanndo NPM ao projeto
-```ssh
+```sh
 npm init
 ```
 * Adicioanndo Express no projeto
-```ssh
+```sh
 npm install express -save
 ```
 * Instalando EJS
-```
+```sh
 npm install ejs -save
 ```
 
 * Instalando Nodemon
-```ssh
+```sh
 sudo npm install -g nodemon
 ```
 
 * Iniciando servidor com nodemon
-```ssh
+```sh
 nodemon app
 ```
 
 * Instalando módulo mysql
-```ssh
+```sh
 npm install mysql --save
 ```
 
 * Instalando módulo Consign
-```ssh
+```sh
 npm install consign --save
 ```
 
 * Instalando módulo Body Parser para tratar os dados recebido no body da requisição: request.body
-```ssh
+```sh
 npm install body-parser --save
 ```
 
 * Instalando Express validator
-```ssh
+```sh
 npm install express-validator --save
 ```
 
