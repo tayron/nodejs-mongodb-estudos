@@ -76,13 +76,18 @@ npm install body-parser --save
 npm install express-validator --save
 ```
 
+* Instalando Socket IO
+```sh
+npm install socket.io --save
+```
+
 #### Tecnologias utilizadas
 Express - Famework NodeJS para aplicação WEB
 EJS - Linguagem de modelagem para criação de páginas HTML usando javascript
 Nodemon - Utilitário que reinicia automaticamente o servidor NodeJS quando houver qualuqer alteração no script
 NPM - Gerenciador de pacotes javascript
 
-#### Scirpt criação do banco de dados no MySQL:
+#### Script de criação do banco de dados no MySQL para o exemplo de CRUD:
 ```sql
 create table noticias(
     id_noticia int not null primary key auto_increment,
