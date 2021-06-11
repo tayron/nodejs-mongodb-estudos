@@ -22,11 +22,16 @@ O MongoDB é um banco de dados No-SQL (não relacional) cuja utilização está 
 
 - **Instagram Clone:** O Objetivo deste projeto consiste na criação de uma API RESTful em conjunto com uma aplicação web cliente baseada no Instagram. Neste módulo iremos nos aprofundar um pouco mais no protocolo HTTP e aprenderemos a utilizar além dos tradicionais métodos POST e GET os métodos PUT e DELETE.
 
-#### Bibliotecas utilizadas nos projetos
-* Adicioanndo NPM ao projeto
+#### Comandos
+* Adicionando NPM ao projeto para configurar as bibliotecas
 ```sh
 npm init
 ```
+* Iniciando servidor com nodemon
+```sh
+nodemon app
+```
+#### Bibliotecas utilizadas nos projetos
 
 * **Express:** Famework NodeJS para aplicação WEB
 ```sh
@@ -42,13 +47,7 @@ npm install ejs -save
 ```sh
 sudo npm install -g nodemon
 ```
-
-* Iniciando servidor com nodemon
-```sh
-nodemon app
-```
-
-* Instalando módulo mysql
+* **MySQL:** Para realizar conexção com banco de dados
 ```sh
 npm install mysql --save
 ```
