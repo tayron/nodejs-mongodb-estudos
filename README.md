@@ -33,11 +33,6 @@ nodemon app
 ```
 #### Bibliotecas utilizadas nos projetos
 
-* **Express:** Famework NodeJS para aplicação WEB
-```sh
-npm install express -save
-```
-
 * **EJS:** Linguagem de modelagem para criação de páginas HTML usando javascript
 ```sh
 npm install ejs -save
@@ -67,14 +62,21 @@ npm install body-parser --save
 npm install express-validator --save
 ```
 
-* **Express-session:** Para criação de variáveis de sessão
-* **Crypto:** Para criptografia de dados utilizando MD5
-* **Connect-Multiparty:** Para upload de arquivos
-
 * **Socket IO:** Framework para agilizar a construção de aplicações real-time bidirecionais.
 ```sh
 npm install socket.io --save
 ```
+
+* **Express:** Famework NodeJS para aplicação WEB
+```sh
+npm install express -save
+```
+
+* **Express-session:** Para criação de variáveis de sessão
+
+* **Crypto:** Para criptografia de dados utilizando MD5
+
+* **Connect-Multiparty:** Para upload de arquivos
 
 #### Próximo aula, 64. Preparando dependências e diretórios do app: 
 * https://www.udemy.com/course/curso-completo-do-desenvolvedor-nodejs/learn/lecture/5754018#overview
