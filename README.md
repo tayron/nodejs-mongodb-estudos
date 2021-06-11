@@ -37,16 +37,18 @@ O MongoDB é um banco de dados No-SQL (não relacional) cuja utilização está 
 ```sh
 npm init
 ```
-* Adicioanndo Express no projeto
+
+* Express - Famework NodeJS para aplicação WEB
 ```sh
 npm install express -save
 ```
-* Instalando EJS
+
+* EJS - Linguagem de modelagem para criação de páginas HTML usando javascript
 ```sh
 npm install ejs -save
 ```
 
-* Instalando Nodemon
+* Nodemon - Utilitário que reinicia automaticamente o servidor NodeJS quando houver qualquer alteração no script
 ```sh
 sudo npm install -g nodemon
 ```
@@ -79,25 +81,6 @@ npm install express-validator --save
 * Instalando Socket IO
 ```sh
 npm install socket.io --save
-```
-
-#### Tecnologias utilizadas
-Express - Famework NodeJS para aplicação WEB
-EJS - Linguagem de modelagem para criação de páginas HTML usando javascript
-Nodemon - Utilitário que reinicia automaticamente o servidor NodeJS quando houver qualuqer alteração no script
-NPM - Gerenciador de pacotes javascript
-
-#### Script de criação do banco de dados no MySQL para o exemplo de CRUD:
-```sql
-create table noticias(
-    id_noticia int not null primary key auto_increment,
-    titulo varchar(100),
-    resumo varchar(100),
-    nome_autor varchar(30),
-    noticia text, 
-    data_noticia date,
-    data_criacao timestamp default current_timestamp
-);
 ```
 
 #### Próximo aula, 64. Preparando dependências e diretórios do app: 
