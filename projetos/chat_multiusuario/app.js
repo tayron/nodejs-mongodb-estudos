@@ -16,6 +16,7 @@ io.on('connection', function(socket){
     })
 
     socket.on('msgParaServidor', function(dado){
+        // Envia mensagem do chat
         socket.emit('msgParaCliente', {
             apelido: dado.apelido,
             mensagem: dado.mensagem
@@ -25,5 +26,16 @@ io.on('connection', function(socket){
             apelido: dado.apelido,
             mensagem: dado.mensagem
         })
+
+        // Atualiza lista de participantes
+        if (parseInt(dado.apelido_atualizado_nos_clientes) === 0) {            
+            socket.emit('participantesParaCliente', {
+                apelido: dado.apelido
+            })
+
+            socket.broadcast.emit('participantesParaCliente', {
+                apelido: dado.apelido
+            })        
+        }
     })
 });

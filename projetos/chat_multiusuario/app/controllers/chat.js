@@ -10,7 +10,7 @@ module.exports.iniciaChat = function(application, validationResult, req, res) {
     
     application.get('io').emit('msgParaCliente', {
         apelido: req.body.apelido, 
-        mensagem: ' acabou de entrar no chat'
+        mensagem: 'Acabou de entrar no chat'
     })
 
     res.render('chat.ejs', {dadosForm: req.body})

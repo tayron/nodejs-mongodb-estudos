@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 
-		<title>Multiroom Chat</title>
+		<title>Chat</title>
 		
 		<!-- JQUERY -->
 		<script src="js/jquery-2.2.1.js"></script>
@@ -51,7 +51,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Multiroom Chat</a>
+					<a class="navbar-brand" href="#">Chat</a>
 				</div>
 				
 				
@@ -62,6 +62,9 @@
 						</li>
 						<li>
 							<a href="#" id="exibe_participantes">Participantes</a>
+						</li>
+						<li>
+							<a href="/">Sair</a>
 						</li>
 					</ul>
 				</div>
@@ -79,16 +82,7 @@
 			
 			<div class="row participantes" id="participantes" style="display:none">
 				<div class="col-md-1"></div>
-				<div class="col-md-10">
-					<span class="participante">
-						<img src="images/ico_usuario.png" />
-						Jorge
-					</span>
-				
-					<span class="participante">
-						<img src="images/ico_usuario.png" />
-						Fernando
-					</span>
+				<div class="col-md-10" id="pessoas">
 				</div>
 				<div class="col-md-1"></div>
                 
@@ -102,6 +96,7 @@
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Mensagem" id="mensagem">
 							<input type="hidden" value="<%=dadosForm.apelido%>" id="apelido">
+							<input type="hidden" value="0" id="apelido_atualizado_nos_clientes">
 							<span class="input-group-btn">
 								<button class="btn btn-default" type="button" id=enviar_mensagem>></button>
 							</span>
@@ -119,14 +114,23 @@
 			$('#enviar_mensagem').click(function(){
 				socket.emit('msgParaServidor', {
 					apelido: $('#apelido').val(),
-					mensagem: $('#mensagem').val()
+					mensagem: $('#mensagem').val(),
+					apelido_atualizado_nos_clientes: $('#apelido_atualizado_nos_clientes').val()
 				})
+
+				$('#apelido_atualizado_nos_clientes').val(1)
 			})			
 
 			socket.on('msgParaCliente', function(dado) {				
 				var html = '<div class="dialogo"><h4>'+dado.apelido+'</h4><p>'+dado.mensagem+'</p></div>'
 				$('#dialogos').append(html)				
 			})
+
+			socket.on('participantesParaCliente', function(dado) {				
+				var html = '<span class="participante"><img src="images/ico_usuario.png" />'+dado.apelido+'</span>'
+				$('#pessoas').append(html)				
+			})
+			
 		</script>
 	</body>
 </html>
