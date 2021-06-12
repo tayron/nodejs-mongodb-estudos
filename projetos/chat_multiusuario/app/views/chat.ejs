@@ -118,12 +118,15 @@
 					apelido_atualizado_nos_clientes: $('#apelido_atualizado_nos_clientes').val()
 				})
 
+				$('#mensagem').val('')
 				$('#apelido_atualizado_nos_clientes').val(1)
 			})			
 
 			socket.on('msgParaCliente', function(dado) {				
 				var html = '<div class="dialogo"><h4>'+dado.apelido+'</h4><p>'+dado.mensagem+'</p></div>'
-				$('#dialogos').append(html)				
+				$('#dialogos').append(html)		
+				
+				window.scrollTo(0, document.body.scrollHeight)
 			})
 
 			socket.on('participantesParaCliente', function(dado) {				
