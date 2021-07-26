@@ -1,15 +1,28 @@
 module.exports.cadastro = function(application, req, res) {
-    res.render('cadastro')
+    var connection = application.config.dbConnection
+    connection()
+
+    res.render('cadastro', {validacao: {}, dadosForm: {}})
 }
 
 module.exports.cadastrar = function(application, validationResult, req, res) {
     let errors = validationResult(req);
 
+    var connection = application.config.dbConnection
+    connection.inserirUsuario()
+
     if (!errors.isEmpty()) {
-        res.render("cadastro", {validacao: errors.array()});
+        res.render("cadastro", {
+            validacao: errors.array(), 
+            dadosForm: req.body
+        });
         return 
     }   
 
-    var dadosForm = req.body;
-    res.render('cadastro')
+    
+    //var UsuariosDAO = new application.app.models.UsuariosDAO(connection)
+
+    UsuariosDAO.inserirUsuario(req.body)
+    
+    res.render('cadastro', {validacao: {}, dadosForm: {}})
 }

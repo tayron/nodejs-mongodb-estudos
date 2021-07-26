@@ -47,6 +47,11 @@ sudo npm install -g nodemon
 npm install mysql --save
 ```
 
+* **Mongodb:** Para realizar conexção com banco de dados
+```sh
+npm install mongodb --save
+```
+
 * **Consign:** Para realizar autoload de módulos
 ```sh
 npm install consign --save

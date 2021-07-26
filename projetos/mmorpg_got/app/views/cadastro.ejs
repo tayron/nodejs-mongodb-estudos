@@ -46,14 +46,14 @@
 					<div class="col-xs-4">
 						<div class="form-group">
 							<label for="nome" class="col-sm-2 col-form-label">Nome</label>
-							<input type="nome" class="form-control" id="nome" name="nome" placeholder="Nome">
+							<input type="nome" class="form-control" id="nome" name="nome" placeholder="Nome" value="<%= dadosForm.nome %>">
 						</div>
 					</div>
 					
 					<div class="col-xs-4">
 						<div class="form-group">
 							<label for="usuario" class="col-sm-2 col-form-label">Usuário</label>
-							<input type="usuario" class="form-control" id="usuario" name="usuario" placeholder="Usuário">
+							<input type="usuario" class="form-control" id="usuario" name="usuario" placeholder="Usuário" value="<%= dadosForm.usuario %>">
 						</div>
 					</div>
 					
@@ -66,46 +66,45 @@
 				</div>
 				
 				<div class="form-group row">
-				
         			<div class="col-xs-2">
         				<img src="images/casa_arryn.jpg" class="img-responsive img-radio">
 						<center>
-							<input type="radio" id="left-item" name="casa" value="arryn"> Casa Arryn
+							<input type="radio" id="left-item" name="casa" value="arryn" <%= dadosForm.casa === 'arryn' ? 'checked' : null %> > Casa Arryn
 						</center>
         			</div>
 					
 					<div class="col-xs-2">
         				<img src="images/casa_baratheon.jpg" class="img-responsive img-radio">
 						<center>
-							<input type="radio" id="left-item" name="casa" value="baratheon"> Casa Baratheon
+							<input type="radio" id="left-item" name="casa" value="baratheon" <%= dadosForm.casa === 'baratheon' ? 'checked' : null %> > Casa Baratheon
 						</center>
         			</div>
 					
 					<div class="col-xs-2">
         				<img src="images/casa_greyjoy.jpg" class="img-responsive img-radio">
 						<center>
-							<input type="radio" id="left-item" name="casa" value="greyjoy"> Casa Greyjoy
+							<input type="radio" id="left-item" name="casa" value="greyjoy" <%= dadosForm.casa === 'greyjoy' ? 'checked' : null %> > Casa Greyjoy
 						</center>
         			</div>
 					
 					<div class="col-xs-2">
         				<img src="images/casa_lannister.jpg" class="img-responsive img-radio">
 						<center>
-							<input type="radio" id="left-item" name="casa" value="lannister"> Casa Lannister
+							<input type="radio" id="left-item" name="casa" value="lannister" <%= dadosForm.casa === 'lannister' ? 'checked' : null %> > Casa Lannister
 						</center>
         			</div>
 					
 					<div class="col-xs-2">
         				<img src="images/casa_martell.jpg" class="img-responsive img-radio">
 						<center>
-							<input type="radio" id="left-item" name="casa" value="martell"> Casa Martell
+							<input type="radio" id="left-item" name="casa" value="martell" <%= dadosForm.casa === 'martell' ? 'checked' : null %> > Casa Martell
 						</center>
         			</div>
 					
 					<div class="col-xs-2">
         				<img src="images/casa_stark.jpg" class="img-responsive img-radio">
 						<center>
-							<input type="radio" id="left-item" name="casa" value="stark"> Casa Stark
+							<input type="radio" id="left-item" name="casa" value="stark" <%= dadosForm.casa === 'stark' ? 'checked' : null %> > Casa Stark
 						</center>
         			</div>
         		</div>
