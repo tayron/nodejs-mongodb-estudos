@@ -45,7 +45,11 @@ const schema = Joi.object({
     }),
     pais:  Joi.string().required().valid('Brasil', 'EUA', 'Japão').messages({
         'any.only' : '{{#label}} deve ser somente Brasil, EUA ou Japão.'
-    })
+    }),
+    estado:  Joi.string().required().valid('BH', 'SP', 'RJ').messages({
+        'any.only' : '{{#label}} não deve pode receber os seguintes valores BH, SP, RJ.',
+        'any.required' : '{{#label}} deve ser informado'
+    })    
 })
 
 try {
