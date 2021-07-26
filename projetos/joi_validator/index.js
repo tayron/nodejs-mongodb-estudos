@@ -47,14 +47,14 @@ const schema = Joi.object({
         'any.only' : '{{#label}} deve ser somente Brasil, EUA ou Japão.'
     }),
     estado:  Joi.string().required().invalid('BH', 'SP', 'RJ').messages({
-        'any.invalid' : '{{#label}} não deve pode receber os seguintes valores BH, SP, RJ.',
+        'any.invalid' : '{{#label}} não deve pode receber os seguintes valores BH, SP, RJ. O valor informado foi {:[.]}',
         'any.required' : '{{#label}} deve ser informado',
         'string.base': '{{#label}} deve ser uma string',
     })    
 })
 
 try {
-    const value = schema.validate({ usuario: 'Tayron', idade: 18, pais: 'Brasil', estado: 55 });
+    const value = schema.validate({ usuario: 'Tayron', idade: 18, pais: 'Brasil', estado: "BH" });
 
     if (value.error !== undefined && value.error.details[0] !== undefined) {
         throw new Error(value.error.details[0].message)
